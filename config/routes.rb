@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
+  # Rails provides a resources method which can be used to declare a standard REST resource. You need to add the authors resource to the config/routes.rb so the file will look as follows:
+  resources :authors
+
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   
