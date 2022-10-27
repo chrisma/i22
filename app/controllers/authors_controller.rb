@@ -12,6 +12,11 @@ class AuthorsController < ApplicationController
         @author = Author.new
     end
 
+    # https://guides.rubyonrails.org/v6.0/getting_started.html#updating-articles
+    def edit
+        @author = Author.find(params[:id])
+    end
+
     # https://guides.rubyonrails.org/v6.0/getting_started.html#saving-data-in-the-controller
     def create
         @author = Author.new(author_params)
