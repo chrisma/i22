@@ -14,6 +14,11 @@ describe "The author model", type: :model do
     expect(@author.homepage).to eq(@homepage)
   end
 
+  it "should not be valid without last name" do
+    @author.last_name = nil
+    expect(@author).to_not be_valid
+  end
+
   it "should have a name and homepage" do
     first = 'Alan'
     last = 'Turing'
