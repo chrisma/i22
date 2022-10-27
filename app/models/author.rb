@@ -1,4 +1,6 @@
 class Author < ApplicationRecord
+    # https://guides.rubyonrails.org/v6.0/getting_started.html#adding-some-validation
+    validates :last_name, presence: true
 
     def name()
         # Call the methods `first_name` and `last_name` and concatenate their outputs 
