@@ -1,4 +1,9 @@
 class AuthorsController < ApplicationController
+    # https://guides.rubyonrails.org/v6.0/getting_started.html#showing-articles
+    def show
+        @author = Author.find(params[:id])
+    end
+
     def new
     end
 
