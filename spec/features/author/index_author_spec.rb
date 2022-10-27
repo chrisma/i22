@@ -23,4 +23,11 @@ describe "Author overview page", type: :feature do
 		expect(page).to have_text(@alan.name)
         expect(page).to have_text(@edsger.name)
 	end
+
+	it "should link to edit author page" do
+		visit authors_path
+		# nil: link with arbitrary text
+		expect(page).to have_link nil, href: edit_author_path(@alan)
+		expect(page).to have_link nil, href: edit_author_path(@edsger)
+	end
 end
