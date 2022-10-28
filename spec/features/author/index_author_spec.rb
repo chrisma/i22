@@ -38,4 +38,10 @@ describe "Author overview page", type: :feature do
 		expect(page).to have_css "a[data-turbo-method='delete'][href='#{author_path(@edsger)}']"
 		expect(page).to have_css "a[data-turbo-method='delete']", count: 2
 	end
+
+	it "should allow deleting an author via clicking delete link" do
+		visit authors_path
+		del_link = find("a[data-turbo-method='delete'][href='#{author_path(@alan)}']")
+		expect{del_link.click}.to change{Author.count}.by(-1)
+	end
 end
