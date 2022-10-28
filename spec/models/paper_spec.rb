@@ -25,4 +25,11 @@ RSpec.describe Paper, type: :model do
     @paper.year = nil
     expect(@paper).to_not be_valid
   end
+
+  it "should not validate with non-integer year" do
+    @paper.year = 'nineteen-fifty'
+    expect(@paper).to_not be_valid
+    @paper.year = 1950.1
+    expect(@paper).to_not be_valid
+  end
 end
