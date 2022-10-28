@@ -10,7 +10,11 @@
     <tr>
       <td><%= author.name %></td>
       <td><%= author.homepage %></td>
-      <td><%= link_to 'Show', author_path(author) %> | <%= link_to 'Edit', edit_author_path(author) %> </td>
+      <td>
+        <%= link_to 'Show', author_path(author) %> |
+        <%= link_to 'Edit', edit_author_path(author) %> |
+        <%= link_to 'Delete', author_path(author), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      </td>
     </tr>
   <% end %>
 </table>
