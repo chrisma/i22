@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   # Rails provides a resources method which can be used to declare a standard REST resource. You need to add the authors resource to the config/routes.rb so the file will look as follows:
   resources :authors
+  resources :papers
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
