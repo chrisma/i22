@@ -1,3 +1,3 @@
 class Paper < ApplicationRecord
-    validates :title, :venue, presence: true
+    validates :title, :venue, :year, presence: true
 end
