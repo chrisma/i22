@@ -22,4 +22,11 @@ describe "Paper index page", type: :feature do
   it "should link to the edit paper page" do
     expect(page).to have_link nil, href: edit_paper_path(@paper)
   end
+
+  # Given a paper
+  # When users visit the papers index page
+  # Then it should show a a delete link for every paper
+  it "should show a a delete link" do
+    expect(page).to have_css "a[data-turbo-method='delete'][href='#{paper_path(@paper)}']"
+  end
 end
