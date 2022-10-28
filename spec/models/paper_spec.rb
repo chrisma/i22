@@ -32,4 +32,10 @@ RSpec.describe Paper, type: :model do
     @paper.year = 1950.1
     expect(@paper).to_not be_valid
   end
+
+  # Given a paper
+  # Then it should have an empty list of authors
+  it "should have and belong to many authors" do
+    expect(Paper.new.authors).to be_empty
+  end
 end
