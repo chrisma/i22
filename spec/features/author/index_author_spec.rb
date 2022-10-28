@@ -30,4 +30,12 @@ describe "Author overview page", type: :feature do
 		expect(page).to have_link nil, href: edit_author_path(@alan)
 		expect(page).to have_link nil, href: edit_author_path(@edsger)
 	end
+
+	it "should have a delete link" do
+		visit authors_path
+		# https://rubydoc.info/github/teamcapybara/capybara/master/Capybara%2FNode%2FMatchers:has_css%3F
+		expect(page).to have_css "a[data-turbo-method='delete'][href='#{author_path(@alan)}']"
+		expect(page).to have_css "a[data-turbo-method='delete'][href='#{author_path(@edsger)}']"
+		expect(page).to have_css "a[data-turbo-method='delete']", count: 2
+	end
 end
