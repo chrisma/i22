@@ -23,4 +23,12 @@ describe "Show paper page", type: :feature do
   it "should have a link delete the paper" do
     expect(page).to have_css "a[data-turbo-method='delete'][href='#{paper_path(@paper)}']"
   end
+
+  # Given a paper with an author
+  # When a user visits the paper's show page
+  # Then it should show the author's full name
+  it "should list the authors" do
+    expect(@paper.authors).to_not be_empty
+    expect(page).to have_text(@paper.authors.first.name)
+  end
 end
