@@ -10,4 +10,9 @@ RSpec.describe Paper, type: :model do
     expect(@paper.venue).to_not be_nil
     expect(@paper.year).to_not be_nil
   end
+
+  it "should not be valid without a title" do
+    @paper.title = nil
+    expect(@paper).to_not be_valid
+  end
 end
