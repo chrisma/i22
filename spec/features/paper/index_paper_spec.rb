@@ -29,4 +29,16 @@ describe "Paper index page", type: :feature do
   it "should show a a delete link" do
     expect(page).to have_css "a[data-turbo-method='delete'][href='#{paper_path(@paper)}']"
   end
+
+  # Given a paper published in 1950
+  # And a paper published in 1968
+  # When users visit the papers index page with url parameter year=1950
+  # Then it should not show the paper published in 1968
+  it "should allow filtering papers by year" do
+    @paper.update(year: 1950)
+    later_paper = FactoryBot.create(:paper, year: 1968, title: 'Later')
+    visit papers_path(year: 1950) #visit "#{papers_path}?year=1950"
+    expect(page).to_not have_text(later_paper.year)
+    expect(page).to_not have_text(later_paper.title)
+  end
 end
