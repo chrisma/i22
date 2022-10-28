@@ -5,4 +5,7 @@ class Paper < ApplicationRecord
 
     # https://guides.rubyonrails.org/v6.0/association_basics.html#the-has-and-belongs-to-many-association
     has_and_belongs_to_many :authors
+
+    # https://guides.rubyonrails.org/v6.0/active_record_querying.html#scopes
+    scope :year, -> (year) { where("year = ?", year)}
 end
